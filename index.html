@@ -236,6 +236,22 @@ img{display:block;max-width:100%;}
 }
 .hero-btn:hover{filter:brightness(1.08);transform:translateY(-2px);}
 
+/* صورة inline تحت الزرار */
+.hero-img-inline{
+  margin-top:24px;
+  width:100%;
+}
+.hero-img-inline img{
+  width:100%;
+  max-width:400px;
+  border-radius:16px;
+  display:block;
+  box-shadow:0 20px 60px rgba(0,0,0,0.4);
+}
+@media(min-width:961px){
+  .hero-img-inline{display:none;} /* على الديسكتوب يتشال — الصورة في الخلفية */
+}
+
 /* stats */
 .stats-row{
   display:-webkit-flex;display:flex;
@@ -551,7 +567,9 @@ img{display:block;max-width:100%;}
 .install-providers{
   display:-webkit-flex;display:flex;
   -webkit-justify-content:center;justify-content:center;
-  flex-wrap:wrap;gap:14px;
+  -webkit-flex-wrap:wrap;flex-wrap:wrap;
+  gap:14px;
+  -webkit-flex-direction:row;flex-direction:row;
 }
 .install-provider{
   background:rgba(255,255,255,0.11);
@@ -735,11 +753,13 @@ footer strong{color:rgba(255,255,255,0.75);}
 
       <a href="#form" class="hero-btn">🚀 احجز مقعدك الآن</a>
 
-      <div class="stats-row">
-        <div class="stat"><strong>KSA1</strong><span>المستوى الأساسي</span></div>
-        <div class="stat"><strong>KSA2</strong><span>المستوى المتقدم</span></div>
-        <div class="stat"><strong>25%</strong><span>خصم الأول</span></div>
-        <div class="stat"><strong>3+</strong><span>اعتمادات</span></div>
+      <!-- الصورة تحت الزرار مباشرة -->
+      <div class="hero-img-inline">
+        <img
+          src="https://res.cloudinary.com/ds7rhtcqz/image/upload/v1777736848/hero-coding.png_tw264j.png"
+          alt="مرمز طبي معتمد"
+          style="width:100%;max-width:420px;border-radius:16px;display:block;margin:0 auto;"
+        >
       </div>
     </div>
 
@@ -764,27 +784,12 @@ footer strong{color:rgba(255,255,255,0.75);}
             <input type="tel" id="fp" placeholder="05xxxxxxxx">
           </div>
           <div class="field">
-            <label for="fc">المدينة *</label>
-            <input type="text" id="fc" placeholder="مدينتك">
+            <label for="fj">الوظيفة *</label>
+            <input type="text" id="fj" placeholder="مثال: مرمز طبي، طالب، ممرض...">
           </div>
           <div class="field">
-            <label for="fpr">البرنامج *</label>
-            <select id="fpr">
-              <option value="" disabled selected>اختر البرنامج</option>
-              <option value="KSA1">KSA1 — الترميز الطبي الأساسي</option>
-              <option value="KSA2">KSA2 — الترميز الطبي المتقدم</option>
-              <option value="KSA1+KSA2">كلا البرنامجين</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="fex">خبرتك في الترميز</label>
-            <select id="fex">
-              <option value="" disabled selected>اختر</option>
-              <option value="لا توجد خبرة">لا توجد خبرة</option>
-              <option value="أساسيات">أساسيات</option>
-              <option value="متوسطة">خبرة متوسطة</option>
-              <option value="متقدمة">خبرة متقدمة</option>
-            </select>
+            <label for="fm">رسالتك</label>
+            <textarea id="fm" placeholder="اكتب رسالتك أو استفسارك هنا..." style="width:100%;border:1.5px solid rgba(107,63,160,0.2);border-radius:9px;padding:10px 12px;font-size:13px;font-family:'Cairo',Arial,sans-serif;color:#1A1640;background:#fff;outline:none;resize:vertical;min-height:80px;direction:rtl;transition:border-color 0.2s;"></textarea>
           </div>
           <button class="form-submit-btn" id="submitBtn" onclick="doSubmit()">
             🚀 احجز مقعدي الآن
