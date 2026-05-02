@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>برنامج الترميز الطبي الأسترالي | نوا للتدريب الصحي</title>
+<meta name="description" content="برنامج الترميز الطبي الأسترالي KSA1 وKSA2 — معتمد من eHealth Education Australia ومجلس الضمان الصحي. خصم 25% للتسجيل الأول.">
+
+<!-- Facebook Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1486663636170161');
+fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1486663636170161&ev=PageView&noscript=1"/></noscript>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#1E1B5E;
+  --purple:#6637A8;
+  --purple2:#8B5CC8;
+  --purple3:#B28AE0;
+  --blue:#4A7FD4;
+  --gold:#F0A500;
+  --teal:#00C896;
+  --white:#fff;
+  --offwhite:#F8F7FC;
+  --border:rgba(107,63,160,.15);
+  --text:#1A1640;
+  --text2:#4A4070;
+  --text3:#8878AA;
+  --r:14px;--rl:22px;--rp:50px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Cairo',sans-serif;color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+
+/* ── NAV ── */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:11px 5%;
+  background:rgba(10,6,40,.9);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.nav-logo{height:32px;display:block;filter:brightness(10)}
+.nav-badges{display:flex;gap:8px}
+.nb{
+  display:flex;align-items:center;gap:5px;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);
+  border-radius:var(--rp);padding:5px 11px;
+  font-size:11px;font-weight:700;color:rgba(255,255,255,.88);white-space:nowrap;
+}
+.nav-cta{
+  background:var(--gold);color:#1A1640;
+  border-radius:var(--rp);padding:9px 24px;
+  font-size:13px;font-weight:800;transition:all .25s;white-space:nowrap;
+}
+.nav-cta:hover{filter:brightness(1.1);transform:translateY(-1px)}
+@media(max-width:768px){.nav-badges{display:none}}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;
+  padding:100px 5% 60px;
+}
+/* الخلفية: gradient أرضي + الصورة فوقه */
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background:linear-gradient(140deg,#0a0628 0%,#1e1b5e 35%,#4a2d85 70%,#6637a8 100%);
+}
+/* الصورة hero-coding.png — ستظهر فوق الـ gradient لما تحطيها جنب الملف */
+.hero-bg::after{
+  content:'';
+  position:absolute;inset:0;
+  background:
+    url('hero-coding.png') center right / auto 100% no-repeat;
+  /* gradient ماسك على الشمال عشان النص يبان */
+  -webkit-mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,.15) 35%, rgba(0,0,0,.7) 65%, #000 100%);
+  mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,.15) 35%, rgba(0,0,0,.7) 65%, #000 100%);
+}
+.hero-dots{
+  position:absolute;inset:0;z-index:1;
+  background-image:radial-gradient(rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:28px 28px;pointer-events:none;
+}
+.hero-inner{
+  max-width:1240px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:1fr 390px;
+  gap:44px;align-items:center;position:relative;z-index:2;
+}
+
+/* copy */
+.hero-copy{color:var(--white)}
+.hero-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.hb{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);
+  border-radius:var(--rp);padding:5px 13px;
+  font-size:11.5px;font-weight:700;backdrop-filter:blur(8px);
+}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--teal);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.7)}}
+
+/* logos row */
+.acc-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.acc-pill{
+  display:flex;align-items:center;gap:5px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
+  border-radius:6px;padding:5px 10px;
+  font-size:11px;font-weight:700;color:rgba(255,255,255,.9);
+  white-space:nowrap;
+}
+.acc-logo-wrap{
+  background:rgba(255,255,255,.95);border-radius:6px;
+  padding:4px 9px;display:flex;align-items:center;
+}
+.acc-logo-wrap img{height:20px;display:block}
+
+.hero h1{
+  font-size:clamp(28px,3.6vw,50px);
+  font-weight:900;line-height:1.18;margin-bottom:16px;
+}
+.hl{color:#C8A8FF}
+.gld{color:var(--gold)}
+.hero-sub{
+  font-size:15px;color:rgba(255,255,255,.84);
+  line-height:1.9;margin-bottom:28px;max-width:480px;
+}
+.hero-btn{
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--gold);color:#1A1640;
+  border-radius:var(--rp);padding:14px 36px;
+  font-size:16px;font-weight:800;
+  box-shadow:0 8px 28px rgba(240,165,0,.44);
+  transition:all .25s;margin-bottom:32px;
+}
+.hero-btn:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(240,165,0,.52)}
+.stats{display:flex;gap:26px;flex-wrap:wrap;padding-top:22px;border-top:1px solid rgba(255,255,255,.13)}
+.stat strong{display:block;font-size:24px;font-weight:900;color:#C8A8FF}
+.stat span{font-size:11px;color:rgba(255,255,255,.56);font-weight:600}
+
+/* ── FORM CARD ── */
+.fcard{
+  background:var(--white);border-radius:var(--rl);
+  box-shadow:0 28px 72px rgba(0,0,0,.3);overflow:hidden;
+}
+.fcard-head{
+  background:linear-gradient(135deg,var(--navy),var(--purple));
+  padding:20px 24px 16px;text-align:center;color:var(--white);
+}
+.fcard-logo{height:30px;filter:brightness(10);margin:0 auto 8px;display:block}
+.fcard-head h3{font-size:16px;font-weight:900;margin-bottom:4px}
+.fcard-head p{font-size:12px;opacity:.8}
+.fcard-disc{
+  display:inline-block;background:var(--gold);color:#1A1640;
+  border-radius:var(--rp);padding:3px 14px;font-size:12px;font-weight:900;margin-top:8px;
+}
+.fcard-body{padding:20px 22px}
+.field{margin-bottom:13px}
+.field label{display:block;font-size:12px;font-weight:700;color:var(--text2);margin-bottom:5px}
+.field input,.field select{
+  width:100%;border:1.5px solid var(--border);border-radius:10px;
+  padding:10px 13px;font-size:13px;font-family:'Cairo',sans-serif;
+  color:var(--text);background:var(--white);outline:none;transition:all .2s;direction:rtl;
+}
+.field input:focus,.field select:focus{
+  border-color:var(--purple);box-shadow:0 0 0 3px rgba(107,63,160,.12);
+}
+.field input::placeholder{color:var(--text3)}
+.fbtn{
+  width:100%;
+  background:linear-gradient(135deg,var(--navy),var(--purple));
+  color:var(--white);border:none;border-radius:var(--rp);
+  padding:13px 20px;font-size:15px;font-weight:800;font-family:'Cairo',sans-serif;
+  cursor:pointer;transition:all .25s;box-shadow:0 6px 22px rgba(30,27,94,.36);
+}
+.fbtn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(30,27,94,.46)}
+.fbtn:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.fnote{text-align:center;font-size:10px;color:var(--text3);margin-top:10px;line-height:1.6}
+.fsuccess{display:none;text-align:center;padding:22px 0}
+.fsuccess-ic{font-size:54px;margin-bottom:10px}
+.fsuccess h3{font-size:18px;font-weight:900;color:var(--purple);margin-bottom:6px}
+.fsuccess p{font-size:13px;color:var(--text2);line-height:1.75}
+
+/* ── STRIP ── */
+.strip{background:var(--white);border-bottom:1px solid var(--border);padding:13px 5%}
+.strip-in{
+  max-width:1240px;margin:0 auto;
+  display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;
+}
+.strip-lbl{font-size:10px;font-weight:800;letter-spacing:1.5px;color:var(--text3);text-transform:uppercase;white-space:nowrap}
+.strip-sep{width:1px;height:20px;background:var(--border)}
+.strip-list{display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
+.si{
+  display:flex;align-items:center;gap:5px;
+  background:#F0EBF9;border:1px solid var(--border);
+  border-radius:7px;padding:5px 11px;
+  font-size:11px;font-weight:700;color:var(--text2);white-space:nowrap;
+}
+
+/* ── SECTIONS ── */
+.sec{padding:70px 5%}
+.sec-in{max-width:1240px;margin:0 auto}
+.sec-head{text-align:center;margin-bottom:44px}
+.sec-tag{
+  display:inline-block;background:#F0EBF9;color:var(--purple);
+  border:1px solid rgba(107,63,160,.18);border-radius:var(--rp);
+  padding:4px 15px;font-size:12px;font-weight:800;margin-bottom:10px;
+}
+.sec-title{font-size:clamp(23px,3vw,36px);font-weight:900;line-height:1.25;color:var(--text);margin-bottom:10px}
+.sec-title em{color:var(--purple);font-style:normal}
+.sec-sub{font-size:14px;color:var(--text2);line-height:1.85;max-width:560px;margin:0 auto}
+
+/* ── WHY dark ── */
+.why{background:linear-gradient(140deg,#0a0628 0%,#1e1b5e 40%,#4a2d85 100%);position:relative;overflow:hidden}
+.why::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:28px 28px;pointer-events:none}
+.why .sec-head{position:relative;z-index:1}
+.why .sec-tag{background:rgba(255,255,255,.1);color:rgba(255,255,255,.9);border-color:rgba(255,255,255,.2)}
+.why .sec-title{color:var(--white)}.why .sec-title em{color:#C8A8FF}.why .sec-sub{color:rgba(255,255,255,.72)}
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;position:relative;z-index:1}
+.feat{background:rgba(255,255,255,.08);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.13);border-radius:var(--r);padding:24px 20px;color:var(--white);transition:all .3s}
+.feat:hover{background:rgba(255,255,255,.13);transform:translateY(-4px)}
+.feat-ic{font-size:32px;margin-bottom:11px}
+.feat h3{font-size:15px;font-weight:800;color:#C8A8FF;margin-bottom:7px}
+.feat p{font-size:13px;line-height:1.8;color:rgba(255,255,255,.74)}
+
+/* ── PROGRAMS ── */
+.programs{background:var(--offwhite)}
+.progs{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.prog{background:var(--white);border-radius:var(--rl);box-shadow:0 8px 28px rgba(30,27,94,.1);border:2px solid transparent;overflow:hidden;transition:all .3s}
+.prog:hover{border-color:var(--purple);transform:translateY(-5px);box-shadow:0 20px 56px rgba(30,27,94,.18)}
+.pbar{height:5px;background:linear-gradient(90deg,var(--navy),var(--purple3))}
+.prog.adv .pbar{background:linear-gradient(90deg,#006B50,var(--teal))}
+.pbody{padding:28px 24px}
+.plv{display:inline-block;border-radius:var(--rp);padding:3px 13px;font-size:11px;font-weight:800;margin-bottom:10px}
+.lv-b{background:#F0EBF9;color:var(--purple)}.lv-a{background:rgba(0,200,150,.1);color:#006B50}
+.prog h3{font-size:19px;font-weight:900;color:var(--text);margin-bottom:5px}
+.pdesc{font-size:13px;color:var(--text2);line-height:1.75;margin-bottom:18px}
+.plist{display:flex;flex-direction:column;gap:8px;margin-bottom:22px}
+.plist li{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--text2);line-height:1.5}
+.plist li::before{content:'✓';flex-shrink:0;width:19px;height:19px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--purple));color:var(--white);font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.prog.adv .plist li::before{background:linear-gradient(135deg,#006B50,var(--teal))}
+.pbtn{display:block;text-align:center;background:linear-gradient(135deg,var(--navy),var(--purple));color:var(--white);border-radius:var(--rp);padding:12px 20px;font-size:14px;font-weight:800;transition:all .25s}
+.pbtn:hover{transform:scale(1.02);box-shadow:0 8px 22px rgba(30,27,94,.36)}
+.prog.adv .pbtn{background:linear-gradient(135deg,#006B50,var(--teal))}
+.prog.adv .pbtn:hover{box-shadow:0 8px 22px rgba(0,200,150,.36)}
+
+/* ── WHO ── */
+.who{background:var(--white)}
+.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.wcard{background:var(--offwhite);border:1px solid var(--border);border-radius:var(--r);padding:24px 18px;text-align:center;transition:all .3s}
+.wcard:hover{border-color:var(--purple);box-shadow:0 4px 16px rgba(30,27,94,.1);transform:translateY(-3px)}
+.wic{font-size:38px;margin-bottom:11px}
+.wcard h3{font-size:15px;font-weight:800;color:var(--text);margin-bottom:7px}
+.wcard p{font-size:13px;color:var(--text2);line-height:1.75}
+
+/* ── INSTALL ── */
+.install{background:linear-gradient(135deg,var(--navy),var(--purple));padding:50px 5%;text-align:center;color:var(--white)}
+.install-in{max-width:800px;margin:0 auto}
+.install h2{font-size:clamp(20px,3vw,32px);font-weight:900;margin-bottom:7px}
+.install h2 em{color:#FFD580;font-style:normal}
+.install p{font-size:14px;opacity:.84;margin-bottom:28px}
+.install-prov{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.ip{background:rgba(255,255,255,.11);border:1.5px solid rgba(255,255,255,.22);border-radius:var(--r);padding:14px 30px}
+.ip-n{font-size:20px;font-weight:900}
+.ip-s{font-size:11px;opacity:.7;margin-top:3px}
+
+/* ── FAQ ── */
+.faq{background:var(--offwhite)}
+.faq-wrap{max-width:700px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:17px 4px;cursor:pointer;font-size:14px;font-weight:800;color:var(--text);user-select:none;transition:color .2s}
+.faq-q:hover{color:var(--purple)}
+.ftog{width:27px;height:27px;border-radius:50%;flex-shrink:0;background:#F0EBF9;color:var(--purple);display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:900;transition:all .25s}
+.faq-item.open .ftog{background:var(--purple);color:var(--white);transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .25s;font-size:13px;color:var(--text2);line-height:1.85;padding:0 4px}
+.faq-item.open .faq-a{max-height:200px;padding-bottom:17px}
+
+/* ── FINAL ── */
+.final{background:linear-gradient(140deg,#0a0628 0%,#1e1b5e 50%,#4a2d85 100%);text-align:center;padding:86px 5%;position:relative;overflow:hidden}
+.final::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(102,55,168,.38),transparent)}
+.final-in{position:relative;z-index:1;color:var(--white)}
+.sbadge{display:inline-flex;align-items:center;gap:7px;background:rgba(240,165,0,.14);border:1px solid rgba(240,165,0,.38);color:#FFD580;border-radius:var(--rp);padding:7px 18px;font-size:12px;font-weight:700;margin-bottom:20px}
+.final h2{font-size:clamp(23px,4vw,42px);font-weight:900;line-height:1.2;margin-bottom:11px}
+.final h2 em{color:#C8A8FF;font-style:normal}
+.final p{font-size:14px;color:rgba(255,255,255,.8);margin-bottom:30px;max-width:480px;margin-left:auto;margin-right:auto}
+.btn-gold{display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:#1A1640;border-radius:var(--rp);padding:14px 40px;font-size:16px;font-weight:800;box-shadow:0 8px 26px rgba(240,165,0,.44);transition:all .25s}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(240,165,0,.5)}
+
+/* ── FOOTER ── */
+footer{background:#0a0628;color:rgba(255,255,255,.4);padding:24px 5%;text-align:center;font-size:12px}
+footer strong{color:rgba(255,255,255,.75)}
+
+/* ── REVEAL ── */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.rv.vis{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr}
+  .fcard{max-width:460px}
+  .feats{grid-template-columns:1fr 1fr}
+  .progs{grid-template-columns:1fr}
+  .who-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .hero{padding:80px 4% 40px}
+  .feats,.who-grid{grid-template-columns:1fr}
+  .stats{gap:16px}
+  .install-prov{flex-direction:column;align-items:center}
+  .progs{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#top">
+    <img class="nav-logo"
+      src="https://nawa-edu.com/wp-content/uploads/2023/02/nawa-english.png"
+      alt="NAWA">
+  </a>
+  <div class="nav-badges">
+    <div class="nb">🏆 eHealth Education Australia</div>
+    <div class="nb">🛡️ مجلس الضمان الصحي</div>
+  </div>
+  <a href="#form" class="nav-cta">احجز مقعدك ←</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-dots"></div>
+
+  <div class="hero-inner">
+
+    <!-- copy -->
+    <div class="hero-copy">
+      <div class="hero-badges">
+        <div class="hb"><div class="dot"></div> برنامج معتمد دولياً</div>
+        <div class="hb">💳 تقسيط بدون فوائد</div>
+        <div class="hb">🇸🇦 KSA1 &amp; KSA2</div>
+      </div>
+
+      <div class="acc-row">
+        <div class="acc-logo-wrap">
+          <img src="https://nawa-edu.com/wp-content/uploads/2023/02/nawa-english.png" alt="NAWA">
+        </div>
+        <div class="acc-pill">🌏 eHealth Education Australia</div>
+        <div class="acc-pill">🏥 مجلس الضمان الصحي</div>
+        <div class="acc-pill">🌐 IAO</div>
+      </div>
+
+      <h1>
+        هل أنت مستعد لتصبح<br>
+        <span class="hl">مرمزاً طبياً</span><br>
+        <span class="gld">معتمداً دولياً؟</span>
+      </h1>
+
+      <p class="hero-sub">
+        برامجنا <strong style="color:#C8A8FF">KSA1 وKSA2</strong> تنقلك من الصفر
+        إلى الاحتراف الكامل — بتدريب على ملفات طبية حقيقية، ومنصة EHROL العالمية،
+        وأداة TurboCoder الاحترافية.
+        <strong style="color:var(--gold)">خصم 25% للتسجيل الأول!</strong>
+      </p>
+
+      <a href="#form" class="hero-btn">🚀 احجز مقعدك الآن</a>
+
+      <div class="stats">
+        <div class="stat"><strong>KSA1</strong><span>المستوى الأساسي</span></div>
+        <div class="stat"><strong>KSA2</strong><span>المستوى المتقدم</span></div>
+        <div class="stat"><strong>25%</strong><span>خصم الأول</span></div>
+        <div class="stat"><strong>3+</strong><span>اعتمادات رسمية</span></div>
+      </div>
+    </div>
+
+    <!-- FORM CARD -->
+    <div class="fcard" id="form">
+      <div class="fcard-head">
+        <img class="fcard-logo"
+          src="https://nawa-edu.com/wp-content/uploads/2023/02/nawa-english.png"
+          alt="NAWA">
+        <h3>سجّل الآن — مقاعد محدودة</h3>
+        <p>سيتواصل معك فريقنا خلال 24 ساعة</p>
+        <div class="fcard-disc">🎉 خصم 25% للتسجيل الأول</div>
+      </div>
+      <div class="fcard-body">
+        <div id="formWrap">
+          <div class="field">
+            <label>الاسم الكامل *</label>
+            <input type="text" id="f-name" placeholder="أدخل اسمك الكامل">
+          </div>
+          <div class="field">
+            <label>رقم الجوال *</label>
+            <input type="tel" id="f-phone" placeholder="05xxxxxxxx">
+          </div>
+          <div class="field">
+            <label>المدينة *</label>
+            <input type="text" id="f-city" placeholder="مدينتك">
+          </div>
+          <div class="field">
+            <label>البرنامج المطلوب *</label>
+            <select id="f-program">
+              <option value="" disabled selected>اختر البرنامج</option>
+              <option value="KSA1">KSA1 — الترميز الطبي الأساسي</option>
+              <option value="KSA2">KSA2 — الترميز الطبي المتقدم</option>
+              <option value="KSA1+KSA2">كلا البرنامجين</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>خبرتك في الترميز الطبي</label>
+            <select id="f-exp">
+              <option value="" disabled selected>اختر</option>
+              <option value="لا توجد خبرة">لا توجد خبرة</option>
+              <option value="أساسيات">أساسيات</option>
+              <option value="متوسطة">خبرة متوسطة</option>
+              <option value="متقدمة">خبرة متقدمة</option>
+            </select>
+          </div>
+          <button class="fbtn" id="submitBtn" onclick="submitForm()">
+            🚀 احجز مقعدي الآن
+          </button>
+          <p class="fnote">🔒 بياناتك آمنة وسرية تماماً</p>
+        </div>
+        <div class="fsuccess" id="formSuccess">
+          <div class="fsuccess-ic">🎉</div>
+          <h3>تم استلام طلبك!</h3>
+          <p>سيتواصل معك أحد مستشارينا خلال 24 ساعة لإتمام تسجيلك وتزويدك بكافة التفاصيل.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ACCRED STRIP -->
+<div class="strip">
+  <div class="strip-in">
+    <span class="strip-lbl">معتمد من</span>
+    <div class="strip-sep"></div>
+    <div class="strip-list">
+      <div class="si"><span>🌏</span> eHealth Education Australia</div>
+      <div class="si"><span>🏥</span> مجلس الضمان الصحي</div>
+      <div class="si"><span>🛡️</span> المجلس الصحي السعودي</div>
+      <div class="si"><span>🌐</span> IAO</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY -->
+<section class="sec why" id="why">
+  <div class="sec-in">
+    <div class="sec-head rv">
+      <div class="sec-tag">لماذا نوا؟</div>
+      <h2 class="sec-title">نؤهّل مرمزين <em>جاهزين للعمل فوراً</em></h2>
+      <p class="sec-sub">لا نكتفي بالنظرية — نمنحك الأدوات والخبرة والاعتماد الحقيقي</p>
+    </div>
+    <div class="feats">
+      <div class="feat rv d1"><div class="feat-ic">🏆</div><h3>اعتماد عالمي ومحلي</h3><p>معتمد من eHealth Education Australia ومعترف به من مجلس الضمان الصحي</p></div>
+      <div class="feat rv d2"><div class="feat-ic">💻</div><h3>منصة EHROL العالمية</h3><p>تجربة تفاعلية مع مرمزين محترفين من حول العالم — بيئة عمل حقيقية</p></div>
+      <div class="feat rv d3"><div class="feat-ic">⚡</div><h3>أداة TurboCoder</h3><p>الأداة الاحترافية ذاتها التي يعتمدها المرمزون المتخصصون يومياً</p></div>
+      <div class="feat rv d1"><div class="feat-ic">🔬</div><h3>تدريب عملي حقيقي</h3><p>ملفات طبية وسجلات مرضى واقعية — لا محاكاة نظرية فحسب</p></div>
+      <div class="feat rv d2"><div class="feat-ic">🌍</div><h3>شرح عربي كامل</h3><p>خبراء أستراليون متخصصون + محاضرات ودعم كامل باللغة العربية</p></div>
+      <div class="feat rv d3"><div class="feat-ic">📅</div><h3>مرونة تامة</h3><p>تعلّم من أي مكان — فيديوهات + أدلة شاملة + Q&A عبر Zoom</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="sec programs" id="programs">
+  <div class="sec-in">
+    <div class="sec-head rv">
+      <div class="sec-tag">البرامج التدريبية</div>
+      <h2 class="sec-title">مساران متكاملان <em>للاحتراف</em></h2>
+      <p class="sec-sub">من الأساسيات الراسخة إلى الاحتراف الكامل — بخطوات واضحة ومدروسة</p>
+    </div>
+    <div class="progs">
+      <div class="prog rv d1">
+        <div class="pbar"></div>
+        <div class="pbody">
+          <span class="plv lv-b">المستوى الأساسي</span>
+          <h3>KSA1 — الترميز الطبي الأساسي</h3>
+          <p class="pdesc">نقطة انطلاقك الصحيحة. تأسيس متين في المفاهيم والأدوات والتطبيق الفعلي.</p>
+          <ul class="plist">
+            <li>أساسيات نظام الترميز ICD-10-AM</li>
+            <li>وصول كامل لمنصة EHROL التفاعلية</li>
+            <li>تدريب على ملفات طبية حقيقية</li>
+            <li>استخدام أداة TurboCoder الاحترافية</li>
+            <li>شهادة معتمدة من eHealth Education Australia</li>
+            <li>دعم كامل باللغة العربية</li>
+          </ul>
+          <a href="#form" class="pbtn">احجز مقعدك — KSA1</a>
+        </div>
+      </div>
+      <div class="prog adv rv d2">
+        <div class="pbar"></div>
+        <div class="pbody">
+          <span class="plv lv-a">المستوى المتقدم</span>
+          <h3>KSA2 — الترميز الطبي المتقدم</h3>
+          <p class="pdesc">للمرمزين الساعين للمناصب الأعلى. تعمق في الحالات المعقدة والتخصصات الدقيقة.</p>
+          <ul class="plist">
+            <li>ترميز الحالات المعقدة والتخصصية</li>
+            <li>يتطلب اجتياز KSA1 أو خبرة معادلة</li>
+            <li>تطبيق متقدم على سجلات مرضى واقعية</li>
+            <li>ترميز الإجراءات الجراحية والتشخيصية</li>
+            <li>شهادة متقدمة معترف بها دولياً ومحلياً</li>
+            <li>تأهيل مباشر للمناصب التخصصية المتقدمة</li>
+          </ul>
+          <a href="#form" class="pbtn">احجز مقعدك — KSA2</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section class="sec who" id="who">
+  <div class="sec-in">
+    <div class="sec-head rv">
+      <div class="sec-tag">لمن البرنامج؟</div>
+      <h2 class="sec-title">هذا البرنامج <em>مصمم لك</em></h2>
+    </div>
+    <div class="who-grid">
+      <div class="wcard rv d1"><div class="wic">🎓</div><h3>الخريجون الجدد</h3><p>ابنِ مسارك في القطاع الصحي من اليوم الأول بشهادة معترف بها عالمياً</p></div>
+      <div class="wcard rv d2"><div class="wic">📈</div><h3>المرمزون الحاليون</h3><p>طوّر مهاراتك وانتقل لمناصب ذات راتب ومكانة أعلى في سوق العمل</p></div>
+      <div class="wcard rv d3"><div class="wic">🏥</div><h3>الكوادر الإدارية</h3><p>حوّل مسارك نحو تخصص تقني مطلوب بشدة مدعوم بالاعتمادات الرسمية</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTALL -->
+<section class="install">
+  <div class="install-in rv">
+    <h2>قسّط بدون فوائد <em>وابدأ رحلتك الآن</em></h2>
+    <p>دفعات شهرية ميسرة — بلا رسوم مخفية ولا قلق</p>
+    <div class="install-prov">
+      <div class="ip"><div class="ip-n">tabby</div><div class="ip-s">4 دفعات شهرية بدون فوائد</div></div>
+      <div class="ip"><div class="ip-n">tamara</div><div class="ip-s">3 دفعات ميسرة بدون رسوم</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec faq" id="faq">
+  <div class="sec-in">
+    <div class="sec-head rv">
+      <div class="sec-tag">الأسئلة الشائعة</div>
+      <h2 class="sec-title">كل ما تريد <em>معرفته</em></h2>
+    </div>
+    <div class="faq-wrap">
+      <div class="faq-item rv">
+        <div class="faq-q" onclick="toggleFaq(this)">هل يمكنني البدء بـ KSA2 بدون KSA1؟<div class="ftog">+</div></div>
+        <div class="faq-a">يتطلب KSA2 اجتياز KSA1 أو خبرة سابقة معادلة. ننصح بالبدء من KSA1 لبناء أساس متين يخدمك على المدى البعيد.</div>
+      </div>
+      <div class="faq-item rv d1">
+        <div class="faq-q" onclick="toggleFaq(this)">ما لغة التدريب؟<div class="ftog">+</div></div>
+        <div class="faq-a">المصطلحات الطبية بالإنجليزية (لغة الترميز الدولية)، مع شرح ودعم كامل باللغة العربية في جميع المراحل.</div>
+      </div>
+      <div class="faq-item rv d2">
+        <div class="faq-q" onclick="toggleFaq(this)">هل البرنامج يؤهلني للعمل في المستشفيات السعودية؟<div class="ftog">+</div></div>
+        <div class="faq-a">نعم، معتمد ومعترف به رسمياً من مجلس الضمان الصحي مما يؤهلك للعمل في المنشآت الصحية بالمملكة.</div>
+      </div>
+      <div class="faq-item rv d3">
+        <div class="faq-q" onclick="toggleFaq(this)">هل يمكن المتابعة من خارج المملكة؟<div class="ftog">+</div></div>
+        <div class="faq-a">نعم، البرنامج أونلاين بالكامل — من أي مكان في العالم باتصال إنترنت فقط.</div>
+      </div>
+      <div class="faq-item rv">
+        <div class="faq-q" onclick="toggleFaq(this)">كيف يعمل التقسيط عبر تابي وتمارا؟<div class="ftog">+</div></div>
+        <div class="faq-a">تابي تتيح 4 دفعات شهرية متساوية، وتمارا 3 دفعات — كلاهما بدون أي فوائد أو رسوم مخفية.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="final-in">
+    <div class="sbadge">🔴 مقاعد محدودة — لضمان جودة المتابعة الفردية</div>
+    <h2>انضم للجيل القادم من<br><em>خبراء الترميز الطبي</em></h2>
+    <p>لا تفوّت خصم 25% للتسجيل الأول. احجز مقعدك قبل اكتمال الأماكن.</p>
+    <a href="#form" class="btn-gold">🚀 احجز مقعدي الآن</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <strong>نوا للتدريب الصحي — NAWA</strong> | جميع الحقوق محفوظة</p>
+  <p style="margin-top:5px;font-size:10px;opacity:.55">معتمد من: eHealth Education Australia | مجلس الضمان الصحي | المجلس الصحي السعودي | IAO</p>
+</footer>
+
+<!-- ══════════════ JAVASCRIPT ══════════════ -->
+<script>
+/* ═══════════════════════════════════════════════
+   🔧 الخطوة الوحيدة المطلوبة منك:
+   بعد عمل الـ Apps Script Deploy،
+   استبدلي YOUR_SCRIPT_ID بالـ ID الحقيقي
+═══════════════════════════════════════════════ */
+const SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+
+async function submitForm() {
+  const name    = document.getElementById('f-name').value.trim();
+  const phone   = document.getElementById('f-phone').value.trim();
+  const city    = document.getElementById('f-city').value.trim();
+  const program = document.getElementById('f-program').value;
+  const exp     = document.getElementById('f-exp').value || 'غير محدد';
+
+  if (!name)    { alert('يرجى إدخال الاسم الكامل'); return; }
+  if (!phone)   { alert('يرجى إدخال رقم الجوال');   return; }
+  if (!city)    { alert('يرجى إدخال المدينة');       return; }
+  if (!program) { alert('يرجى اختيار البرنامج');     return; }
+
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = '⏳ جاري الإرسال...';
+
+  const payload = {
+    timestamp:  new Date().toLocaleString('ar-SA', { timeZone: 'Asia/Riyadh' }),
+    name, phone, city, program,
+    experience: exp,
+    source:     document.referrer || 'مباشر'
+  };
+
+  try {
+    await fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode:   'no-cors',  // مهم جداً — بدونها هيديك CORS error
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify(payload)
+    });
+  } catch (e) {
+    // no-cors دايماً بيدي "opaque response" — البيانات وصلت
+  }
+
+  // 🔥 Pixel Lead Event
+  if (typeof fbq !== 'undefined') {
+    fbq('track', 'Lead', {
+      content_name:     program,
+      content_category: 'Medical Coding',
+      currency:         'SAR'
+    });
+  }
+
+  // إظهار رسالة النجاح
+  document.getElementById('formWrap').style.display    = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+}
+
+function toggleFaq(el) {
+  const item = el.closest('.faq-item');
+  const open = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!open) item.classList.add('open');
+}
+
+// Scroll Reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+
+// Smooth Scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+</script>
+
+</body>
+</html>
