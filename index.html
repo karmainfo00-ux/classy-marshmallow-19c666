@@ -77,24 +77,70 @@ a{text-decoration:none;color:inherit}ul{list-style:none}img{display:block;max-wi
 
 /* HERO LAYOUT — نص يمين + فورم شمال، والصورة background */
 .hero{
-  background:
-    linear-gradient(to left,
-      rgba(8,4,32,0.0)  0%,
-      rgba(8,4,32,0.55) 42%,
-      rgba(8,4,32,0.97) 68%,
-      rgba(8,4,32,1.0)  100%
-    ),
-    url('https://res.cloudinary.com/ds7rhtcqz/image/upload/v1777736848/hero-coding.png_tw264j.png')
-      right center / auto 100% no-repeat,
-    linear-gradient(145deg,#080420 0%,#1e1b5e 45%,#4a2d85 75%,#6637a8 100%);
+  min-height:100vh;
+  padding:100px 5% 60px;
+  position:relative;overflow:hidden;
+  background:linear-gradient(145deg,#080420 0%,#1e1b5e 45%,#4a2d85 75%,#6637a8 100%);
 }
 
+/* 3 أعمدة: فورم | نص | صورة */
 .hero-inner{
-  max-width:1240px;margin:0 auto;
+  max-width:1380px;margin:0 auto;
   display:grid;
-  grid-template-columns:1fr 360px;
-  gap:48px;align-items:center;
+  grid-template-columns:360px 1fr 420px;
+  gap:40px;
+  align-items:center;
   position:relative;z-index:2;
+}
+
+/* COPY — العمود الأوسط */
+.hero-copy{color:#fff;order:2}
+
+/* صورة الدكتور — العمود الأيسر (على اليمين بصرياً في RTL) */
+.hero-img-col{
+  display:flex !important;
+  order:1;
+  align-items:flex-end;
+  justify-content:center;
+  height:100%;
+  min-height:500px;
+}
+.hero-img-col img{
+  width:100%;
+  max-height:90vh;
+  object-fit:contain;
+  object-position:bottom center;
+  display:block;
+  border-radius:0;
+  /* بدون أي shadow أو overlay */
+  filter:drop-shadow(0 20px 40px rgba(0,0,0,0.3));
+}
+
+/* الفورم — العمود على الشمال */
+.form-card{
+  order:3;
+  background:#fff;border-radius:20px;
+  box-shadow:0 24px 70px rgba(0,0,0,.35);
+  overflow:hidden;
+  position:sticky;top:90px;
+}
+
+/* موبايل */
+@media(max-width:1024px){
+  .hero-inner{
+    grid-template-columns:1fr;
+    gap:28px;
+  }
+  .hero-copy{order:1}
+  .hero-img-col{
+    order:2;
+    min-height:auto;
+  }
+  .hero-img-col img{
+    max-width:340px;
+    margin:0 auto;
+  }
+  .form-card{order:3;position:static;max-width:100%;}
 }
 
 /* COPY */
@@ -137,8 +183,8 @@ a{text-decoration:none;color:inherit}ul{list-style:none}img{display:block;max-wi
 }
 .hero-btn:hover{filter:brightness(1.08);transform:translateY(-2px)}
 
-/* لا عمود صورة منفصل */
-.hero-img-col{display:none}
+/* لا عمود صورة — الصورة في الـ background بس */
+.hero-img-col{display:none !important}
 
 /* ── FORM CARD ── */
 .form-card{
@@ -391,7 +437,7 @@ footer strong{color:rgba(255,255,255,.75)}
   <!-- GRID: نص | صورة | فورم -->
   <div class="hero-inner">
 
-    <!-- 1. النص -->
+    <!-- نص في الوسط -->
     <div class="hero-copy">
       <div class="badges-row">
         <div class="badge"><div class="dot"></div> برنامج معتمد دولياً</div>
@@ -419,7 +465,7 @@ footer strong{color:rgba(255,255,255,.75)}
       <a href="#form" class="hero-btn">🚀 احجز مقعدك الآن</a>
     </div>
 
-    <!-- 2. الفورم -->
+  <!-- فورم على الشمال -->
     <div class="form-card" id="form">
       <div class="fc-head">
         <img class="fc-logo" src="https://nawa-edu.com/wp-content/uploads/2023/02/nawa-english.png" alt="NAWA">
@@ -456,6 +502,15 @@ footer strong{color:rgba(255,255,255,.75)}
           <p>سيتواصل معك أحد مستشارينا خلال 24 ساعة لإتمام تسجيلك.</p>
         </div>
       </div>
+    </div>
+
+    <!-- صورة الدكتور واضحة على اليمين -->
+    <div class="hero-img-col">
+      <img
+        src="https://res.cloudinary.com/ds7rhtcqz/image/upload/v1777736848/hero-coding.png_tw264j.png"
+        alt="مرمز طبي معتمد"
+        onerror="this.parentNode.style.display='none'"
+      >
     </div>
 
   </div><!-- end hero-inner -->
