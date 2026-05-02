@@ -6,7 +6,6 @@
 <title>برنامج الترميز الطبي الأسترالي | نوا للتدريب الصحي</title>
 <meta name="description" content="KSA1 وKSA2 — معتمد من eHealth Education Australia ومجلس الضمان الصحي. خصم 25%.">
 
-<!-- Meta Pixel -->
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
@@ -132,8 +131,18 @@ img{display:block;max-width:100%}
 .c-gold{color:#F0A500}
 .hero-sub{
   font-size:14px;color:rgba(255,255,255,.84);
-  line-height:1.9;margin-bottom:26px;max-width:460px;
+  line-height:1.9;margin-bottom:20px;max-width:460px;
 }
+
+/* تعديلات الصورة المضافة */
+.hero-added-img {
+  width: 100%;
+  max-width: 460px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
 .hero-btn{
   display:inline-flex;align-items:center;gap:8px;
   background:#F0A500;color:#1A1640;border-radius:50px;
@@ -204,6 +213,7 @@ img{display:block;max-width:100%}
   .hero-img-col{order:2;min-height:260px}
   .hero-img-col img{max-width:280px;margin:0 auto}
   .form-card{order:3;position:static}
+  .hero-added-img { max-width: 100%; }
 }
 
 /* ══ STRIP ══ */
@@ -319,7 +329,6 @@ footer strong{color:rgba(255,255,255,.75)}
 </head>
 <body>
 
-<!-- NAV -->
 <nav class="nav">
   <a href="#top">
     <img class="nav-logo" src="https://nawa-edu.com/wp-content/uploads/2023/02/nawa-english.png" alt="NAWA">
@@ -331,20 +340,17 @@ footer strong{color:rgba(255,255,255,.75)}
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="top">
   <div class="hero-dots"></div>
   <div class="hero-glow"></div>
 
   <div class="hero-inner">
 
-    <!-- عمود 1: صورة الدكتور على اليمين -->
     <div class="hero-img-col">
       <img src="hero-coding.png" alt="مرمز طبي معتمد"
            onerror="this.parentNode.style.display='none'">
     </div>
 
-    <!-- عمود 2: النص في الوسط -->
     <div class="hero-copy">
       <div class="badges-row">
         <div class="badge"><div class="dot"></div> برنامج معتمد دولياً</div>
@@ -369,10 +375,12 @@ footer strong{color:rgba(255,255,255,.75)}
         بتدريب على ملفات طبية حقيقية، ومنصة EHROL العالمية، وأداة TurboCoder الاحترافية.
         <strong style="color:#F0A500">خصم 25% للتسجيل الأول!</strong>
       </p>
+      
+      <img src="hero-coding.png.jpg" alt="خصم 25%" class="hero-added-img">
+
       <a href="#form" class="hero-btn">🚀 احجز مقعدك الآن</a>
     </div>
 
-    <!-- عمود 3: الفورم على الشمال -->
     <div class="form-card" id="form">
       <div class="fc-head">
         <img class="fc-logo" src="https://nawa-edu.com/wp-content/uploads/2023/02/nawa-english.png" alt="NAWA">
@@ -414,7 +422,6 @@ footer strong{color:rgba(255,255,255,.75)}
   </div>
 </section>
 
-<!-- STRIP -->
 <div class="strip">
   <div class="strip-in">
     <span class="strip-lbl">معتمد من</span>
@@ -428,7 +435,6 @@ footer strong{color:rgba(255,255,255,.75)}
   </div>
 </div>
 
-<!-- WHY -->
 <section class="sec why" id="why">
   <div class="sec-in">
     <div class="sec-head rv">
@@ -447,7 +453,6 @@ footer strong{color:rgba(255,255,255,.75)}
   </div>
 </section>
 
-<!-- PROGRAMS -->
 <section class="sec programs-sec" id="programs">
   <div class="sec-in">
     <div class="sec-head rv">
@@ -494,7 +499,6 @@ footer strong{color:rgba(255,255,255,.75)}
   </div>
 </section>
 
-<!-- WHO -->
 <section class="sec who-sec" id="who">
   <div class="sec-in">
     <div class="sec-head rv">
@@ -509,7 +513,6 @@ footer strong{color:rgba(255,255,255,.75)}
   </div>
 </section>
 
-<!-- INSTALL -->
 <section class="install-sec">
   <div class="install-in rv">
     <h2>قسّط بدون فوائد <em>وابدأ رحلتك الآن</em></h2>
@@ -521,7 +524,6 @@ footer strong{color:rgba(255,255,255,.75)}
   </div>
 </section>
 
-<!-- FAQ -->
 <section class="sec faq-sec" id="faq">
   <div class="sec-in">
     <div class="sec-head rv">
@@ -538,7 +540,6 @@ footer strong{color:rgba(255,255,255,.75)}
   </div>
 </section>
 
-<!-- FINAL CTA -->
 <section class="final-sec">
   <div class="final-in">
     <div class="sbadge">🔴 مقاعد محدودة — لضمان جودة المتابعة الفردية</div>
