@@ -92,26 +92,48 @@ img{display:block;max-width:100%;}
   position:relative;
   overflow:hidden;
 }
-/* صورة الدكتور في الـ hero */
+  /* صورة الدكتور — في الخلفية على اليمين */
 .hero-img-wrap{
   position:absolute;
-  bottom:0; left:0;
+  bottom:0;
+  left:0;           /* اليسار = اليمين في RTL */
   height:100%;
-  width:45%;
-  z-index:1;
+  width:50%;
+  z-index:0;        /* خلف كل حاجة */
   pointer-events:none;
-  /* fade على اليمين عشان يمتزج مع الـ gradient */
-  -webkit-mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 30%, #000 60%);
-  mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 30%, #000 60%);
+  /* fade للداخل عشان يمتزج مع الـ gradient بدون حواف حادة */
+  -webkit-mask-image:linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0,0,0,0.5) 25%,
+    rgba(0,0,0,0.85) 55%,
+    #000 80%
+  );
+  mask-image:linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0,0,0,0.5) 25%,
+    rgba(0,0,0,0.85) 55%,
+    #000 80%
+  );
 }
 .hero-doctor-img{
-  height:100%;
   width:100%;
+  height:100%;
   object-fit:cover;
   object-position:top center;
+  display:block;
 }
+/* الموبايل — الصورة تظهر كـ background خفيفة */
 @media(max-width:960px){
-  .hero-img-wrap{display:none;}
+  .hero-img-wrap{
+    width:100%;
+    height:50%;
+    bottom:0;
+    opacity:0.22;
+    -webkit-mask-image:linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+    mask-image:linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+  }
 }
 
 /* نقاط زخرفية */
@@ -119,7 +141,7 @@ img{display:block;max-width:100%;}
   position:absolute;inset:0;
   background-image:radial-gradient(rgba(255,255,255,0.06) 1px,transparent 1px);
   background-size:30px 30px;
-  pointer-events:none;z-index:0;
+  pointer-events:none;z-index:1;  /* فوق الصورة تحت المحتوى */
 }
 .hero-glow{
   position:absolute;
@@ -134,7 +156,7 @@ img{display:block;max-width:100%;}
   display:-webkit-flex;display:flex;
   gap:40px;
   -webkit-align-items:center;align-items:center;
-  position:relative;z-index:1;
+  position:relative;z-index:2;  /* فوق الصورة */
 }
 .hero-copy{
   -webkit-flex:1;flex:1;
